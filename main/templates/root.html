@@ -1,0 +1,19 @@
+<div>
+    <div>
+        {% if request.user.is_authenticated %}
+            환영합니다. {{ request.user.username }} 님.
+
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        {% else %}
+            현재 로그인되어 있지 않습니다.
+
+            <a href="/accounts/register/"> 회원가입 </a>
+            <a href="/accounts/login/"> 로그인 </a>
+        {% endif %}
+    </div>
+
+    여기는 메인 페이지 입니다.
+</div>
